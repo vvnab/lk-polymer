@@ -1,0 +1,242 @@
+swagger: '2.0'
+info:
+  title: ist-accounts
+  description: Получение списка адресов клиента
+  version: 1.0.0
+produces:
+  - application/json
+paths:
+  /CorpClients:
+    get:
+      description: Получение списка корпоративных клиентов
+      parameters:
+        - name: title
+          in: query
+          type: string
+          description: Наименование клиента
+          required: false
+        - name: email
+          in: query
+          type: string
+          description: Логин (email) клиента
+          required: false
+        - name: inn
+          in: query
+          type: string
+          description: ИНН клиента
+          required: false
+        - name: contractNumber
+          in: query
+          type: string
+          description: Номер договора
+          required: false
+      responses:
+        200:
+          description: Корпоративные клиенты
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/CorpClientShort"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+  # =================================
+  /CorpClients/{id}:
+    get:
+      description: Получение профиля корпоративного клиента
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: ID клиента
+          required: true
+      responses:
+        200:
+          description: Профиль корпоративного клиента
+          schema:
+            $ref: "#/definitions/CorpClient"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+  # =================================
+  /CorpClients/{id}/bills:
+    get:
+      description: Получение списка счетов корпоративного клиента
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: ID клиента
+          required: true
+      responses:
+        200:
+          description: Счета корпоративного клиента
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/BillShort"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+  # =================================
+  /bills:
+    get:
+      description: Получение списка счетов корпоративных клиентов
+      parameters:
+        - name: email
+          in: query
+          type: string
+          description: Логин (email) клиента
+          required: false
+        - name: inn
+          in: query
+          type: string
+          description: ИНН клиента
+          required: false
+        - name: contractNumber
+          in: query
+          type: string
+          description: Номер договора
+          required: false
+      responses:
+        200:
+          description: Корпоративные клиенты
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/BillShort"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+  # =================================
+  /bills/{id}:
+    get:
+      description: Получение счета корпоративного клиента
+      parameters:
+        - name: id
+          in: path
+          type: integer
+          description: ID счета
+          required: true
+      responses:
+        200:
+          description: Счет корпоративного клиента
+          schema:
+            $ref: "#/definitions/Bill"
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/Error"
+# =================================
+#
+#
+# Модели
+#
+#
+# =================================
+definitions:
+  CorpClientShort:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID клиента
+      title:
+        type: string
+        description: Наименование клиента
+      email:
+        type: string
+        description: email клиента
+      inn:
+        type: string
+        description: ИНН клиента
+      contractNumber:
+        type: string
+        description: Номер договора клиента
+  # =================================
+  CorpClient:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID счета
+      title:
+        type: string
+        description: Наименование клиента
+      email:
+        type: string
+        description: email клиента
+      inn:
+        type: string
+        description: ИНН клиента
+      contractNumber:
+        type: string
+        description: Номер договора клиента
+      info:
+        type: object
+        description: Прочая информация о клиенте
+      lastUpdate:
+        type: string
+        format: date-time
+        description: Время последнего изменения
+      registration:
+        type: string
+        format: date-time
+        description: Время регистрации
+  # =================================
+  BillShort:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID счёта
+      CorpClientId:
+        type: integer
+        description: ID клиента
+      title:
+        type: string
+        description: Наименование счёта
+      balance:
+        type: number
+        description: Остаток средств
+  # =================================
+  Bill:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: ID счёта
+      CorpClientId:
+        type: integer
+        description: ID клиента
+      title:
+        type: string
+        description: Наименование счёта
+      balance:
+        type: number
+        description: Остаток средств
+      limit:
+        type: number
+        description: Предел долга
+      lastUpdate:
+        type: string
+        format: date-time
+        description: Время последнего изменения
+      registration:
+        type: string
+        format: date-time
+        description: Время создание
+  # =================================
+  Error:
+    type: object
+    properties:
+      code:
+        type: string
+        description: Код ошибки
+      details:
+        type: string
+        description: Описание ошибки
