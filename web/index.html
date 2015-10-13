@@ -7,6 +7,9 @@
 	<link rel="import" href="packages/polymer_elements/paper_input.html">
 	<link rel="import" href="packages/polymer_elements/paper_toolbar.html">
 	<link rel="import" href="packages/polymer_elements/paper_icon_button.html">
+
+	<link rel="import" href="components/user_form.html">
+
 </head>
 <body unresolved>
 	<paper-toolbar>
@@ -14,9 +17,13 @@
 		<div class="title">Title</div>
 		<paper-icon-button icon="more-vert" on-tap="moreAction"></paper-icon-button>
 	</paper-toolbar>
+	
 	<paper-input label="Фамилия"></paper-input>
 	<paper-input label="Имя"></paper-input>
 	<paper-input label="Отчество"></paper-input>
-	<script type="application/dart" src="main.dart"></script>
+	
+	<user-form></user-form>
+	
+	<script type="application/dart" src="index.dart"></script>
 </body>
 </html>

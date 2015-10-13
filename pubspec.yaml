@@ -9,6 +9,8 @@ dependencies:
   web_components: ^0.12.0
   reflectable: ^0.3.0
   polymer_elements:
+  shelf_rest:
+  shelf_auth:
 transformers:
 - web_components:
     entry_points:

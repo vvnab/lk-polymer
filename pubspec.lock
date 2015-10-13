@@ -17,6 +17,10 @@ packages:
     description: barback
     source: hosted
     version: "0.15.2+7"
+  bignum:
+    description: bignum
+    source: hosted
+    version: "0.0.7"
   browser:
     description: browser
     source: hosted
@@ -25,6 +29,10 @@ packages:
     description: charcode
     source: hosted
     version: "1.1.0"
+  cipher:
+    description: cipher
+    source: hosted
+    version: "0.7.1"
   cli_util:
     description: cli_util
     source: hosted
@@ -37,6 +45,18 @@ packages:
     description: collection
     source: hosted
     version: "1.1.3"
+  concepts:
+    description: concepts
+    source: hosted
+    version: "0.2.0"
+  constrain:
+    description: constrain
+    source: hosted
+    version: "0.2.5"
+  converters:
+    description: converters
+    source: hosted
+    version: "0.0.1"
   crypto:
     description: crypto
     source: hosted
@@ -45,18 +65,38 @@ packages:
     description: csslib
     source: hosted
     version: "0.12.1"
+  dart_jwt:
+    description: dart_jwt
+    source: hosted
+    version: "0.4.4"
   dart_style:
     description: dart_style
     source: hosted
     version: "0.2.0"
+  either:
+    description: either
+    source: hosted
+    version: "0.1.8"
+  fixnum:
+    description: fixnum
+    source: hosted
+    version: "0.9.1+2"
   glob:
     description: glob
     source: hosted
     version: "1.0.5"
+  hateoas_models:
+    description: hateoas_models
+    source: hosted
+    version: "0.1.6"
   html:
     description: html
     source: hosted
     version: "0.12.2"
+  http_exception:
+    description: http_exception
+    source: hosted
+    version: "0.1.0"
   http_multi_server:
     description: http_multi_server
     source: hosted
@@ -81,6 +121,10 @@ packages:
     description: mime
     source: hosted
     version: "0.9.3"
+  option:
+    description: option
+    source: hosted
+    version: "1.1.0"
   package_config:
     description: package_config
     source: hosted
@@ -116,6 +160,10 @@ packages:
     description: pub_semver
     source: hosted
     version: "1.2.2"
+  quiver:
+    description: quiver
+    source: hosted
+    version: "0.20.0"
   reflectable:
     description: reflectable
     source: hosted
@@ -124,6 +172,26 @@ packages:
     description: shelf
     source: hosted
     version: "0.6.3"
+  shelf_auth:
+    description: shelf_auth
+    source: hosted
+    version: "0.7.0"
+  shelf_bind:
+    description: shelf_bind
+    source: hosted
+    version: "0.9.1"
+  shelf_path:
+    description: shelf_path
+    source: hosted
+    version: "0.1.7"
+  shelf_rest:
+    description: shelf_rest
+    source: hosted
+    version: "0.3.2"
+  shelf_route:
+    description: shelf_route
+    source: hosted
+    version: "0.13.5"
   shelf_static:
     description: shelf_static
     source: hosted
@@ -155,11 +223,19 @@ packages:
   test:
     description: test
     source: hosted
-    version: "0.12.5"
+    version: "0.12.5+1"
+  uri:
+    description: uri
+    source: hosted
+    version: "0.10.0"
   utf:
     description: utf
     source: hosted
     version: "0.9.0+2"
+  uuid:
+    description: uuid
+    source: hosted
+    version: "0.5.0"
   watcher:
     description: watcher
     source: hosted
